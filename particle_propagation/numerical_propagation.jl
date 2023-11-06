@@ -9,12 +9,12 @@ end
 
 function proton_propa(E_src, z_src)
 
-    return runge_kutta_4(f, z_src, E_src, 0, 1000)
+    return runge_kutta_4(f, z_src, E_src, 0, 250)
 end
 
 function inv_proton_propa(E, z_src)
 
-    return runge_kutta_4(f, 0, E, z_src, 1000)
+    return runge_kutta_4(f, 0, E, z_src, 250)
 end
 
 function E_g(E, z_src)

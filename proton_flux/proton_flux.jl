@@ -10,22 +10,6 @@ function mod_factor(E, z_g)
     return 1 / (sqrt(1 + z_g) - 1)^2 * 1 / (Lambda(E, z_g)^(gamma + 1)) * dEg_dE(z_g, E)
 end
 
-function mod_factor_multiple_sources(E, z_g)
-
-    println("E = $E")
-
-    int_dz = SciPy.integrate.quad(integrand_mod_factor, 0, z_g, args = (E))[1]
-
-    return int_dz
-end
-
-function integrand_mod_factor(z, E)
-    
-    gamma = 1.1
-
-    return 1 / (1 + z)^(5/2) * 1 / (Lambda(E, z)^(gamma + 1)) * dEg_dE(z, E)
-end
-
 function dEg_dE(z_g, E)
 
     int_dz = SciPy.integrate.quad(integrand_dz, 0, z_g, args = (E))[1]
@@ -37,7 +21,6 @@ function integrand_dz(z, E)
 
     return (1 + z)^(1/2) * db0_dE(E_g(E, z) * (1 + z))
 end
-
 
 function Lambda(E, z_g)
 
