@@ -10,8 +10,6 @@ function t(z_)
     return (2 / 3 * 1 / H_0) * (1 + z_)^(-3/2)
 end
 
-
-
 function dt_dz(z)
 
     return -1 / H_0 * (1 + z)^(-5/2)
